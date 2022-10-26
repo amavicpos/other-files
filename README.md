@@ -1,3 +1,7 @@
+Astronomy
+-----------
+Programs and little projects focused on astronomy.
+
 Numerical analysis with C++
 -----------
 Exercises and methods learnt in Computation.
