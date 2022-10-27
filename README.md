@@ -1,6 +1,6 @@
-Astronomy
+Astrophysics
 -----------
-Programs and little projects focused on astronomy.
+Programs and little projects focused on astronomy/astrophysics.
 
 Numerical analysis with C++
 -----------
