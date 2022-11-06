@@ -1,6 +1,6 @@
 Physics mini projects
 -----------
-Programs and little projects focused on physics and astrophysics.
+Little projects focused on physics and astrophysics.
 
 Numerical analysis with C++
 -----------

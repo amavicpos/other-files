@@ -40,7 +40,13 @@ ani1 = FuncAnimation(fig, update1, frames=np.linspace(0, 2*np.pi/w, 20),
 ani2 = FuncAnimation(fig, update2, frames=np.linspace(0, 2*np.pi/k, 20),
                     init_func=init2, blit=True)
 
+ax1.set_xlabel('Time (s)')
+ax1.set_ylabel('Amplitude (m)')
+
+ax2.set_xlabel('Position x (m)')
+ax2.set_ylabel('Amplitude (m)')
+
 plt.show()
 
-# TODO: Subplots: function of t and function of x
 # TODO: Format plots
+# TODO: Specify set t or x in plot automatically
