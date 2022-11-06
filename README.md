@@ -1,6 +1,6 @@
-Astrophysics
+Physics mini projects
 -----------
-Programs and little projects focused on astronomy/astrophysics.
+Programs and little projects focused on physics and astrophysics.
 
 Numerical analysis with C++
 -----------
