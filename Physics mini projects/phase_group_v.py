@@ -9,33 +9,43 @@ w, w2 = 2*np.pi, 2*np.pi+0.1
 k, k2 = 2*np.pi, 2*np.pi+0.1
 T1, T2 = 2*np.pi/w, 2*np.pi/w2
 l1, l2 = 2*np.pi/k, 2*np.pi/k2
-x1, t1, x2, t2 = [], [], [], []
 N = 10
-for i, j in zip(np.linspace(0, l1, num=N), np.linspace(0, T1, num=N)):
+
+def wave_equation(x, t, A=1, k=2*np.pi, w=2*np.pi, phi=0, dir=-1):
+    return A*np.cos(k*x + dir*w*t + phi)
+
+""" for i, j in zip(np.linspace(0, l1, num=N), np.linspace(0, T1, num=N)):
     x1.append(i)
     t1.append(j)
 for i, j in zip(np.linspace(0, l2, num=N), np.linspace(0, T2, num=N)):
     x2.append(i)
     t2.append(j)
 
-def wave_equation(x, t, A=1, k=2*np.pi, w=2*np.pi, phi=0, dir=-1):
-    return A*np.cos(k*x + dir*w*t + phi)
+for i in range(len(x1)):
+    y1_x, y2_x = [], []
+    for j in range(len(t1)):
+        y1_x.append(wave_equation(x1[i], t1[j], k=k, w=w))
+        y2_x.append(wave_equation(x2[i], t2[j], k=k2, w=w2))
+    y1.append(y1_x)
+    y2.append(y2_x) """
 
 def data_gen():
-    t = data_gen.t
-    x = data_gen.x
-    cnt = 0
-    while cnt < 1e6:
-        cnt+=1
-        t += 2*np.pi/w/100
-        x += 2*np.pi/k/100
-        y1 = wave_equation(0, t)
-        y2 = wave_equation(x, 0)
-        # adapted the data generator to yield both sin and cos
-        yield t, x, y1, y2
+    x1, t1, x2, t2, y1, y2 = [], [], [], [], [], []
+    for i, j in zip(np.linspace(0, l1, num=N), np.linspace(0, T1, num=N)):
+        x1.append(i)
+        t1.append(j)
+    for i, j in zip(np.linspace(0, l2, num=N), np.linspace(0, T2, num=N)):
+        x2.append(i)
+        t2.append(j)
 
-data_gen.t = 0
-data_gen.x = 0
+    for i in range(len(x1)):
+        y1_x, y2_x = [], []
+        for j in range(len(t1)):
+            y1_x.append(wave_equation(x1[i], t1[j], k=k, w=w))
+            y2_x.append(wave_equation(x2[i], t2[j], k=k2, w=w2))
+            yield x1[i], t1[j], x2[i], t2[j], y1_x[j], y2_x[j]
+        y1.append(y1_x)
+        y2.append(y2_x)
 
 # create a figure with two subplots
 fig, (ax1, ax2) = plt.subplots(2,1)
@@ -56,22 +66,18 @@ ax2.grid()
 tdata, xdata, y1data, y2data = [], [], [], []
 def run(data):
     # update the data
-    t, x, y1, y2 = data
-    tdata.append(t)
-    xdata.append(x)
-    y1data.append(y1)
-    y2data.append(y2)
+    x1, t1, x2, t2, y1, y2 = data
 
     # axis limits checking. Same as before, just for both axes
     for ax in [ax1, ax2]:
         xmin, xmax = ax.get_xlim()
-        if t >= xmax:
+        if t1 >= xmax:
             ax.set_xlim(xmin, 2*xmax)
             ax.figure.canvas.draw()
 
     # update the data of both line objects
-    line[0].set_data(tdata, y1data)
-    line[1].set_data(xdata, y2data)
+    line[0].set_data(t1, y1[0])
+    line[1].set_data(t2, y2[0])
 
     return line
 
