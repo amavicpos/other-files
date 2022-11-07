@@ -5,8 +5,18 @@ import matplotlib.animation as animation
 # TODO: Format plots
 # TODO: Specify set t or x in plot automatically
 
-w = 5
-k = 2*np.pi
+w, w2 = 2*np.pi, 2*np.pi+0.1
+k, k2 = 2*np.pi, 2*np.pi+0.1
+T1, T2 = 2*np.pi/w, 2*np.pi/w2
+l1, l2 = 2*np.pi/k, 2*np.pi/k2
+x1, t1, x2, t2 = [], [], [], []
+N = 10
+for i, j in zip(np.linspace(0, l1, num=N), np.linspace(0, T1, num=N)):
+    x1.append(i)
+    t1.append(j)
+for i, j in zip(np.linspace(0, l2, num=N), np.linspace(0, T2, num=N)):
+    x2.append(i)
+    t2.append(j)
 
 def wave_equation(x, t, A=1, k=2*np.pi, w=2*np.pi, phi=0, dir=-1):
     return A*np.cos(k*x + dir*w*t + phi)
