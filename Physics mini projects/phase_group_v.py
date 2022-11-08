@@ -2,7 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
-# TODO: Format plots
+# TODO: Plot more than one curve in same graph
+# TODO: Plot oscillation inside beat and envelope separately
+# TODO: Format plot
 
 T1, T2 = 1, 1
 l1, l2 = 1, 1
@@ -12,10 +14,10 @@ x_range = np.linspace(0, l1*100, 100)
 t_range = np.linspace(0, T1*100, 100)
 A=1
 
-def beats_equation(x, t, A=1, k1=2*np.pi, k2=2*np.pi, w1=2*np.pi, w2=2*np.pi):
+def beats(x, t, A=1, k1=2*np.pi, k2=2*np.pi, w1=2*np.pi, w2=2*np.pi):
     return 2*A*np.cos((k1-k2)/2*x-(w1-w2)/2*t)*np.cos((k1+k2)/2*x-(w1+w2)/2*t)
 
-matrix_ = np.matrix([[beats_equation(x, t, A, k1, k2, w1, w2) for x in x_range] for t in t_range])
+matrix_ = np.matrix([[beats(x, t, A, k1, k2, w1, w2) for x in x_range] for t in t_range])
 
 fig, ax = plt.subplots()
 xdata, ydata = [], []
