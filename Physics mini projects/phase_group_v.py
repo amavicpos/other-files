@@ -14,14 +14,12 @@ T_env = 2*np.pi/((w1-w2)/2)
 x_range = np.linspace(0, l_env*2, N)
 t_range = np.linspace(0, T_env*5, N)
 
-def envelope(x, t, A=1, k1=2*np.pi, k2=2*np.pi, w1=2*np.pi, w2=2*np.pi):
-    return 2*A*np.cos((k1-k2)/2*x+(w1-w2)/2*t)
-
-def sum_wave(x, t, A=1, k1=2*np.pi, k2=2*np.pi, w1=2*np.pi, w2=2*np.pi):
-    return envelope(x, t, A, k1, k2, w1, w2)*np.cos((k1+k2)/2*x-(w1+w2)/2*t)
-
-envelope_ = [[envelope(x, t, A, k1, k2, w1, w2) for x in x_range] for t in t_range]
-sum_wave_ = [[sum_wave(x, t, A, k1, k2, w1, w2) for x in x_range] for t in t_range]
+envelope_ = np.zeros((N,)*2)
+sum_wave_ = np.zeros((N,)*2)
+for i, t in enumerate(t_range):
+    for j, x in enumerate(x_range):
+        envelope_[i][j] = 2*A*np.cos((k1-k2)/2*x+(w1-w2)/2*t)
+        sum_wave_[i][j] = envelope_[i][j]*np.cos((k1+k2)/2*x-(w1+w2)/2*t)
 
 fig, ax = plt.subplots()
 ln1, = ax.plot([], [], 'b')
