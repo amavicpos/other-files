@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import time
 
 # TODO: Change values, plot different cases
 # TODO: Format plot
@@ -14,12 +15,13 @@ T_env = 2*np.pi/((w1-w2)/2)
 x_range = np.linspace(0, l_env*2, N)
 t_range = np.linspace(0, T_env*5, N)
 
-envelope_ = np.zeros((N,)*2)
-sum_wave_ = np.zeros((N,)*2)
-for i, t in enumerate(t_range):
-    for j, x in enumerate(x_range):
-        envelope_[i][j] = 2*A*np.cos((k1-k2)/2*x+(w1-w2)/2*t)
-        sum_wave_[i][j] = envelope_[i][j]*np.cos((k1+k2)/2*x-(w1+w2)/2*t)
+#start_time = time.time()
+
+envelope_ = [[2*A*np.cos((k1-k2)/2*x+(w1-w2)/2*t) for x in x_range] for t in t_range]
+sum_wave_ = [[envelope_[i][j]*np.cos((k1+k2)/2*x-(w1+w2)/2*t) for j, x in enumerate(x_range)] for i, t in enumerate(t_range)]
+
+""" end_time = time.time()
+print(end_time - start_time) """
 
 fig, ax = plt.subplots()
 ln1, = ax.plot([], [], 'b')
