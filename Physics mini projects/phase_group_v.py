@@ -17,8 +17,8 @@ t_range = np.linspace(0, T_env*5, N)
 
 #start_time = time.time()
 
-envelope_ = [[2*A*np.cos((k1-k2)/2*x+(w1-w2)/2*t) for x in x_range] for t in t_range]
-sum_wave_ = [[envelope_[i][j]*np.cos((k1+k2)/2*x-(w1+w2)/2*t) for j, x in enumerate(x_range)] for i, t in enumerate(t_range)]
+envelope_ = [2*A*np.cos((k1-k2)/2*x_range+(w1-w2)/2*t) for t in t_range]
+sum_wave_ = [envelope_[i]*np.cos((k1+k2)/2*x_range-(w1+w2)/2*t) for i, t in enumerate(t_range)]
 
 """ end_time = time.time()
 print(end_time - start_time) """
