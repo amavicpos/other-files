@@ -6,13 +6,30 @@ import time
 # TODO: Change values, plot different cases
 # TODO: Format plot
 
+""" v_phase = (w1+w2)/(k1+k2) and v_group = (w1-w2)/(k1-k2)
+Some cases to consider:
+    - v_group < 0 and v_phase > 0
+    - v_group > 0 and v_phase > 0
+    - v_group = 0 and v_phase > 0: w1 very close to w2
+    - v_group > v_phase
+    - v_group < v_phase
+    - v_group = v_phase """
+
 A = 1
 N = 500
 w1, w2 = 1.001, 1
 k1, k2 = 1.001, 1
-l_env = 2*np.pi/((k1-k2)/2)
-T_env = 2*np.pi/((w1-w2)/2)
-x_range = np.linspace(0, l_env*2, N)
+try:
+    l_env = np.abs(2*np.pi/((k1-k2)/2))
+except:
+    l_env = 1e4
+try:
+    T_env = np.abs(2*np.pi/((w1-w2)/2))
+except:
+    T_env = 1e4
+print(T_env)
+x_lim = l_env*2
+x_range = np.linspace(0, x_lim, N)
 t_range = np.linspace(0, T_env*5, N)
 
 #start_time = time.time()
@@ -28,7 +45,7 @@ ln1, = ax.plot([], [], 'b')
 ln2, = ax.plot([], [], 'r')
 
 def init():
-    ax.set_xlim(0, l_env*2)
+    ax.set_xlim(0, x_lim)
     ax.set_ylim(-3*A, 3*A)
     return ln1, ln2,
 
