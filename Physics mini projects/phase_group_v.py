@@ -3,9 +3,6 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import time
 
-# TODO: Change values, plot different cases
-# TODO: Format plot
-
 """ v_phase = (w1+w2)/(k1+k2) and v_group = (w1-w2)/(k1-k2)
 Some cases to consider:
     - v_group < 0 and v_phase > 0
@@ -22,12 +19,14 @@ k1, k2 = 1.001, 1
 try:
     l_env = np.abs(2*np.pi/((k1-k2)/2))
 except:
-    l_env = 1e4
+    print("Equal k1 and k2 produce errors.")
+    quit()
 try:
     T_env = np.abs(2*np.pi/((w1-w2)/2))
 except:
-    T_env = 1e4
-print(T_env)
+    print("Equal w1 and w2 produce errors.")
+    quit()
+
 x_lim = l_env*2
 x_range = np.linspace(0, x_lim, N)
 t_range = np.linspace(0, T_env*5, N)
@@ -55,4 +54,7 @@ def update(frame):
     return ln1, ln2,
 
 ani = FuncAnimation(fig, update, frames=range(N), init_func=init, blit=True)
+plt.xlabel('x position')
+plt.ylabel('y position')
+plt.legend(['Envelope', 'Superposition of waves'])
 plt.show()
