@@ -1,10 +1,14 @@
-Physics mini projects
+Laboratory
 -----------
-Little projects focused on physics and astrophysics.
+Laboratory files and projects.
 
 Numerical analysis with C++
 -----------
 Exercises and methods learnt in Computation.
+
+Physics mini projects
+-----------
+Little personal projects focused on physics and astrophysics.
 
 Scientific computing with Python
 -----------
