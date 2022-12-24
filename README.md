@@ -2,9 +2,9 @@ Laboratory, Numerical analysis with C++, Scientific computing with Python
 -----------
 Modules undertaken at university.
 
-Physics mini projects
+Physics projects
 -----------
-Little personal projects focused on physics and astrophysics.
+Personal projects focused on physics and astrophysics.
 
 Three body problem
 -----------
