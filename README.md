@@ -1,6 +1,6 @@
 Laboratory, Numerical analysis with C++, Scientific computing with Python
 -----------
-Modules undertaken at university.
+Modules taken at university.
 
 Physics projects
 -----------
