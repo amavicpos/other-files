@@ -1,3 +1,7 @@
+Codecademy
+-----------
+Courses and projects done in Codecademy.
+
 Laboratory, Numerical analysis with C++, Scientific computing with Python
 -----------
 Modules taken at university.

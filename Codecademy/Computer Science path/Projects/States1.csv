@@ -1,0 +1,51 @@
+﻿id,name,capital_city,EU,NATO
+1,Albania,Tirana,FALSE,TRUE
+2,Andorra,Andorra la Vella,FALSE,FALSE
+3,Armenia,Yerevan,FALSE,FALSE
+4,Austria,Vienna,TRUE,FALSE
+5,Azerbaijan,Baku,FALSE,FALSE
+6,Belarus,Minsk,FALSE,FALSE
+7,Belgium,Brussels,TRUE,TRUE
+8,Bosnia and Herzegovina,Sarajevo,FALSE,FALSE
+9,Bulgaria,Sofia,TRUE,TRUE
+10,Croatia,Zagreb,TRUE,TRUE
+11,Cyprus,Nicosia,TRUE,FALSE
+12,Czech Republic,Prague,TRUE,TRUE
+13,Denmark,Copenhagen,TRUE,TRUE
+14,Estonia,Tallinn,TRUE,TRUE
+15,Finland,Helsinki,TRUE,FALSE
+16,France,Paris,TRUE,TRUE
+17,Georgia,Tbilisi,FALSE,FALSE
+18,Germany,Berlin,TRUE,TRUE
+19,Greece,Athens,TRUE,TRUE
+20,Hungary,Budapest,TRUE,TRUE
+21,Iceland,Reykjavík,FALSE,TRUE
+22,Ireland,Dublin,TRUE,FALSE
+23,Italy,Rome,TRUE,TRUE
+24,Kazakhstan,Nur-Sultan,FALSE,FALSE
+25,Latvia,Riga,TRUE,TRUE
+26,Liechtenstein,Vaduz,FALSE,FALSE
+27,Lithuania,Vilnius,TRUE,TRUE
+28,Luxembourg,Luxembourg,TRUE,TRUE
+29,Malta,Valletta,TRUE,FALSE
+30,Moldova,Chișinău,FALSE,FALSE
+31,Monaco,Monaco,FALSE,FALSE
+32,Montenegro,Podgorica,FALSE,FALSE
+33,Netherlands,Amsterdam,TRUE,TRUE
+34,North Macedonia,Skopje,FALSE,TRUE
+35,Norway,Oslo,FALSE,TRUE
+36,Poland,Warsaw,TRUE,TRUE
+37,Portugal,Lisbon,TRUE,TRUE
+38,Romania,Bucharest,TRUE,TRUE
+39,Russia,Moscow,FALSE,FALSE
+40,San Marino,San Marino,FALSE,FALSE
+41,Serbia,Belgrade,FALSE,FALSE
+42,Slovakia,Bratislava,TRUE,TRUE
+43,Slovenia,Ljubljana,TRUE,TRUE
+44,Spain,Madrid,TRUE,TRUE
+45,Sweden,Stockholm,TRUE,FALSE
+46,Switzerland,Bern,FALSE,FALSE
+47,Turkey,Ankara,FALSE,TRUE
+48,Ukraine,Kyiv,FALSE,FALSE
+49,United Kingdom,London,FALSE,TRUE
+50,Vatican City,Vatican City,FALSE,FALSE

@@ -1,0 +1,19 @@
+# Executable files
+Cpp/UFO/ufo.exe
+Cpp/SocialApp/app.exe
+Cpp/rock_paper_scissors.exe
+
+# VS Code
+Cpp/SocialApp/.vscode/
+Cpp/UFO/.vscode/
+
+# IntelliJ IDEA
+Java/Languages/.idea/
+Java/Languages/Languages.iml
+.idea/
+Codecademy_projects_exercises.iml
+Java/.idea/
+Java/Codecademy_projects_exercises.iml
+Machine Learning path/.idea/
+Machine Learning path/.ipynb_checkpoints/
+Machine Learning path/formatted.log
