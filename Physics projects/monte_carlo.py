@@ -15,12 +15,12 @@ ax1.set_ylim(-radius, radius)
 ax1.set_xlabel('x position')
 ax1.set_ylabel('y position')
 ax2 = fig.add_subplot(2,1,2)
-ax2.plot(range(1, N+1, 1), [math.pi / 4 * 100]*N)
+ax2.plot(range(1, N+1), [math.pi / 4 * 100]*N)
 ax2.set_xlabel('Number of points')
-ax2.set_ylabel('Probability of point inside circle')
+ax2.set_ylabel('Probability of point falling inside circle (%)')
 plt.subplots_adjust(hspace=0.3)
 
-for i in range(1, N+1, 1):
+for i in range(1, N+1):
     x = radius * 2 * rd.rand() - 1
     y = radius * 2 * rd.rand() - 1
     x_points[i-1] = x
