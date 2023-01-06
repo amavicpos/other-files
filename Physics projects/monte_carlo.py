@@ -1,31 +1,28 @@
-import numpy as np
+#import numpy as np
 from numpy import random as rd
 import math
 from matplotlib import pyplot as plt
-import time
 
-# Plot: https://youtu.be/iZ8RhlBq4g0
-# Theory: https://youtu.be/EaR3C4e600k
-
-# Develop: changeable radius/side size, format plots, give physical meaning
-
-start_time = time.time()
-
-N, circ = 200, 0
+N, circ, radius = 200, 0, 1
 x_points, y_points = [None]*N, [None]*N
-inside_circle = lambda x, y: (x ** 2 + y ** 2) <= 1
+inside_circle = lambda x, y: (x ** 2 + y ** 2) <= radius
 
 fig = plt.figure(figsize=(10,6))
 ax1 = fig.add_subplot(2,1,1)
 ax1.axis('square')
-ax1.set_xlim(-1, 1)
-ax1.set_ylim(-1, 1)
+ax1.set_xlim(-radius, radius)
+ax1.set_ylim(-radius, radius)
+ax1.set_xlabel('x position')
+ax1.set_ylabel('y position')
 ax2 = fig.add_subplot(2,1,2)
 ax2.plot(range(1, N+1, 1), [math.pi / 4 * 100]*N)
+ax2.set_xlabel('Number of points')
+ax2.set_ylabel('Probability of point inside circle')
+plt.subplots_adjust(hspace=0.3)
 
 for i in range(1, N+1, 1):
-    x = 2 * rd.rand() - 1
-    y = 2 * rd.rand() - 1
+    x = radius * 2 * rd.rand() - 1
+    y = radius * 2 * rd.rand() - 1
     x_points[i-1] = x
     y_points[i-1] = y
     if inside_circle(x, y):
@@ -33,10 +30,9 @@ for i in range(1, N+1, 1):
         ax1.scatter(x, y, c='r')
     else: ax1.scatter(x, y, c='b')
     ax2.scatter(i, circ/i * 100, c='r', s=7)
+    ax2.legend(['Theoretical', 'Calculated'])
     plt.pause(0.001)
 
-end_time = time.time()
-print('Time of execution:', end_time - start_time)
 plt.show()
 
 # To plot limiting circle
