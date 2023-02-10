@@ -61,28 +61,28 @@ plt.show()
 
 # EXERCISES
 # Monte Carlo
-N, radius = 200, 1
-x_points, y_points = [
-    rd.uniform(-1, 1) for i in range(N)], [rd.uniform(-1, 1) for i in range(N)]
+def estimation_pi(N):
+    radius = 1
+    x_points, y_points = [
+        rd.uniform(-1, 1) for i in range(int(N))], [rd.uniform(-1, 1) for i in range(int(N))]
+    circ = sum(1 for x, y in zip(x_points, y_points) if (x ** 2 + y ** 2) <= radius)
+    x_circle = [np.cos(v) for v in np.arange(0, np.pi * 2, 0.01)]
+    y_circle = [np.sin(v) for v in np.arange(0, np.pi * 2, 0.01)]
+    plt.scatter(x_points, y_points)
+    plt.plot(x_circle, y_circle, 'r')
+    plt.axis('square')
+    plt.show()
+    return circ/N*4
 
-
-def inside_circle(x, y): return (x ** 2 + y ** 2) <= radius
-
-
-circ = sum(1 for x, y in zip(x_points, y_points) if inside_circle(x, y))
+estimate_e7 = estimation_pi(1e4)
 print("\nMonte Carlo:")
-print(f"Percentage of points inside circle: {circ/N*100}%")
-print(f"Theoretical percentage: {round(np.pi/4*100, 1)}%\n")
-x_circle = [np.cos(v) for v in np.arange(0, np.pi * 2, 0.01)]
-y_circle = [np.sin(v) for v in np.arange(0, np.pi * 2, 0.01)]
-plt.scatter(x_points, y_points)
-plt.plot(x_circle, y_circle, 'r')
-plt.axis('square')
-plt.show()
+print(f"Percentage of points inside circle: {round(estimate_e7/4*100, 1)}%")
+print(f"Theoretical percentage: {round(np.pi/4*100, 1)}%")
+print(f"Estimate of pi: {estimate_e7}\n")
 
 # Stefan's Law
 T, P = np.loadtxt("data/stefan.dat", skiprows=2, unpack=True)
-logT, logP = np.log(T), np.log(P)
+logT, logP = np.log10(T), np.log10(P)
 plt.plot(logT, logP)
 plt.xlabel('log(T)')
 plt.ylabel('log(P)')
@@ -91,3 +91,15 @@ popt, pcov = curve_fit(str_line, logT, logP, sigma=None)
 print("Stefan's Law, linear regression, a is the calculated exponent of T:")
 print("a =", popt[0], "+/-", pcov[0, 0]**0.5)
 print("b =", popt[1], "+/-", pcov[1, 1]**0.5)
+
+# Estimation of e
+def estimation_e(accuracy):
+    last_term = 1
+    index = 1
+    while(abs(np.e - last_term) > accuracy):
+        last_term += 1/np.math.factorial(index)
+        index += 1
+    return last_term
+
+accuracy = 1e-4
+print(f"\nEstimation of e: {round(estimation_e(accuracy), int(np.log10(1/accuracy)))}")
