@@ -93,13 +93,15 @@ print("a =", popt[0], "+/-", pcov[0, 0]**0.5)
 print("b =", popt[1], "+/-", pcov[1, 1]**0.5)
 
 # Estimation of e
-def estimation_e(accuracy):
-    last_term = 1
-    index = 1
-    while(abs(np.e - last_term) > accuracy):
+def estimation_e(epsilon):
+    last_second_term = 1
+    last_term = last_second_term + 1/np.math.factorial(1)
+    index = 2
+    while(abs(last_second_term - last_term) > epsilon):
+        last_second_term = last_term
         last_term += 1/np.math.factorial(index)
         index += 1
     return last_term
 
 accuracy = 1e-4
-print(f"\nEstimation of e: {round(estimation_e(accuracy), int(np.log10(1/accuracy)))}")
+print(f"\nEstimate of e: {round(estimation_e(accuracy), int(np.log10(1/accuracy)))}")
