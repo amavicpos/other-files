@@ -74,11 +74,11 @@ def estimation_pi(N):
     plt.show()
     return circ/N*4
 
-estimate_e7 = estimation_pi(1e4)
+estimate_e4 = estimation_pi(1e4)
 print("\nMonte Carlo:")
-print(f"Percentage of points inside circle: {round(estimate_e7/4*100, 1)}%")
+print(f"Percentage of points inside circle: {round(estimate_e4/4*100, 1)}%")
 print(f"Theoretical percentage: {round(np.pi/4*100, 1)}%")
-print(f"Estimate of pi: {estimate_e7}\n")
+print(f"Estimate of pi: {estimate_e4}\n")
 
 # Stefan's Law
 T, P = np.loadtxt("data/stefan.dat", skiprows=2, unpack=True)
