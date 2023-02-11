@@ -94,11 +94,11 @@ print("b =", popt[1], "+/-", pcov[1, 1]**0.5)
 
 # Estimation of e
 def estimation_e(epsilon):
-    last_second_term = 1
+    second_last_term = 1
     last_term = 2
     index = 2
-    while(abs(last_second_term - last_term) > epsilon):
-        last_second_term = last_term
+    while(abs(second_last_term - last_term) > epsilon):
+        second_last_term = last_term
         last_term += 1/np.math.factorial(index)
         index += 1
     return last_term
