@@ -105,5 +105,5 @@ def Lagrange_point(r):
 
 
 print(
-    f"Lagrange point (x1 = 1e6, x2 = 1e10): {secant_method(1e6, 1e10, 1e-4, Lagrange_point)} m"
+    f"\nLagrange point (x1 = 1e6, x2 = 1e10): {secant_method(1e6, 1e10, 1e-4, Lagrange_point)} m"
 )
