@@ -18,7 +18,6 @@ const getSetQuestion = async () => {
         answers_text.sort();
         answers.forEach((element, index) => { element.textContent = answers_text[index]; });
         correctAns = Array.from(answers).find(element => element.textContent === data[0].correctAnswer);
-        // console.log(data);
     } catch (e) {
         console.log("ERROR", e);
     }
@@ -56,19 +55,14 @@ const condition = () => {
 const colour = (element) => {
     if (element === correctAns) {
         element.style.color = 'green';
-        document.addEventListener("click", handler, true);
         ++counterCorrect;
         ++counterTotal;
         document.querySelector('p').textContent = `Correct answers: ${counterCorrect}/${counterTotal}`;
-        // setTimeout(() => {setValue(true)}, 1000);
     } else {
         element.style.color = 'red';
-        document.addEventListener("click", handler, true);
         setTimeout(() => correctAns.style.color = 'green', 1000);
-        setTimeout(() => {
-            ++counterTotal;
-            document.querySelector('p').textContent = `Correct answers: ${counterCorrect}/${counterTotal}`;
-        }, 2000);
+        ++counterTotal;
+        document.querySelector('p').textContent = `Correct answers: ${counterCorrect}/${counterTotal}`;
     }
 }
 
@@ -77,6 +71,11 @@ let counterTotal = 0;
 
 getSetQuestion();
 answers.forEach(element => element.addEventListener('click', _ => {
+    document.addEventListener("click", handler, true);
     colour(element);
-    setTimeout(() => getSetQuestion(), 1000);
+    if (element === correctAns) {
+        setTimeout(() => getSetQuestion(), 2000);
+    } else {
+        setTimeout(() => getSetQuestion(), 3000);
+    }
 }))
