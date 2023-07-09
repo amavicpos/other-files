@@ -1,0 +1,22 @@
+To create basic Docker app:
+1. Create app folder: app.js and views/home.ejs (port = 3000)
+2. npm init -y
+3. npm i express ejs
+4. Dockerfile outside app folder:
+FROM node:14-alpine
+
+WORKDIR /app
+
+COPY package.json .
+COPY package-lock.json .
+
+RUN npm ci --production
+
+COPY . .
+
+EXPOSE 3000
+
+CMD [ "node", "app.js" ]
+
+5. docker build -t practice-app . (run in Dockerfile directory)
+6. docker run -p 3000:3000 practice-app (run in Dockerfile directory)
