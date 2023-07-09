@@ -19,4 +19,4 @@ EXPOSE 3000
 CMD [ "node", "app.js" ]
 
 5. docker build -t practice-app . (run in Dockerfile directory)
-6. docker run -p 3000:3000 practice-app (run in Dockerfile directory)
+6. docker run -p 3000:3000 practice-app
