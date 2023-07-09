@@ -1,6 +1,6 @@
-Codecademy
+Codecademy, Code First Girls
 -----------
-Courses and projects done in Codecademy.
+Courses and projects done in Codecademy and Code First Girls.
 
 Laboratory, Numerical analysis with C++, Scientific computing with Python
 -----------
