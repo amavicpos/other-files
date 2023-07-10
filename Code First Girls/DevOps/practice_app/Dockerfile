@@ -1,14 +1,11 @@
 FROM node:14-alpine
 
-WORKDIR /
+WORKDIR /app
 
-COPY app/package.json .
-COPY app/package-lock.json .
+COPY package*.json ./
 
-RUN npm ci --production
-
-COPY . .
+COPY /app /app
 
 EXPOSE 3000
 
-CMD [ "node", "app/app.js" ]
+CMD [ "node", "app.js" ]
