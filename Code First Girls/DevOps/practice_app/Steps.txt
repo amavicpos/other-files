@@ -5,13 +5,9 @@ To create basic Docker app:
 4. Dockerfile outside app folder:
 FROM node:14-alpine
 
-WORKDIR /app
-
-COPY package*.json ./
-
 COPY /app /app
 
-EXPOSE 3000
+WORKDIR /app
 
 CMD [ "node", "app.js" ]
 
